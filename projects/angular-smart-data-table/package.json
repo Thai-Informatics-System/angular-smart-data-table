@@ -1,0 +1,25 @@
+{
+  "name": "@servicemind.tis/angular-smart-data-table",
+  "version": "2.4.20",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Thai-Informatics-System/angular-smart-data-table.git"
+  },
+  "homepage": "https://github.com/Thai-Informatics-System/angular-smart-data-table#readme",
+  "bugs": {
+    "url": "https://github.com/Thai-Informatics-System/angular-smart-data-table/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/material": "^19.2.8",
+    "@angular/cdk": "^19.2.8"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

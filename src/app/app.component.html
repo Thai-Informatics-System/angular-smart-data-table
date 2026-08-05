@@ -1,0 +1,207 @@
+<ng-container *transloco="let t; read: 'serviceManagement.serviceRequestListComponent'">
+    <div class="container-fluid angular-main-container" id="angular-main-container">
+        <div class="angular-page">
+            <h1 class="angular-page-title">{{t('cases')}}</h1>
+            <angular-smart-data-table #mainTableWrapper [columnCustomizationUrlConfig]="columnCustomizationUrlConfig" [t]="getLanguageJson" componentName="cm-service-request" [mainTitle]="t('list')"
+                [breadcrumbs]="[{url: '/admin/service-management/cases', name: t('breadcrumb')}]"
+                [columnsCodeMapping]="columnsCodeMapping" [searchPlaceholder]="t('searchPlaceholder')"
+                [loadDataApiBaseUrl]="loadDataApiBaseUrl" [(pageSize)]="pageSize" [(pageIndex)]="pageIndex" [hideHeader]="true"
+                [rowsConfig]="rowsConfig" [filterFormGroup]="filterFormGroup" [keepFilterInUrl]="true" [dataNotFoundConfig]="{
+                    title: t('noDataFound'),
+                    desc: t('noDataFoundDescription'),
+                    btnText: t('addNew'),
+                    btnUrl: '/admin/service-management/cases/add'}
+                "
+                [enableRowsSelection]="true" [enableAllRowsSelection]="true" [selectedRowIds]="selectedRowIds" (selectedRowsChange)="selectedRowsChanged($event)"
+                (onDataLoaded)="onDataLoaded($event)" (onSetExtraData)="onSetExtraData($event)" (onSetTotal)="onSetTotal($event)"
+                [isMobileResponsiveTable]="true" [isExpansionForMobileResponsive]="true" [isExpandedRowForMobileResponsive]="false"
+                [expandedTemplateForMobileResponsive]="expandedDetailTemplateForMobileResponsive" [headerTemplateForEachRowForMobileResponsive]="headerTemplateForEachRowForMobileResponsive">
+
+                <!--Filter Buttons-->
+                <ng-container slot="filter-button-section">
+                    <li class="angular-inline-group-item">
+                        <button mat-flat-button class="angular-text-upper angular-bg-light" (click)="changeFilterVisibility()">
+                            <mat-icon style="margin: 0px;">filter_alt</mat-icon>
+                            <span class="lg:inline hidden ml-2">{{t("filter")}}</span>
+                        </button>
+                    </li>
+
+                </ng-container>
+                <!--Filter Buttons End-->
+
+                <!-- Filter Section Start -->
+                <ng-container slot="filter-form-section">
+
+                    <form [formGroup]="filterFormGroup" (ngSubmit)="filterRecords()">
+                        <div [ngClass]="{'hidden': !isShowFilter}" class="grid grid-cols-1 my-5">
+                    
+                            <div class="grid grid-cols-12 gap-x-3">
+                    
+                                <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                                    <tis-client-side-dropdown label="{{t('company')}}" type="single" nameKey="name" valueKey="id"
+                                        [data]="companyList" formControlName="companyId" [config]="config.companyId"
+                                        (selectedValueNamesUpdated)="updateSelectedFilterValues($event)"></tis-client-side-dropdown>
+                                </div> -->
+                    
+                                <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                                    <tis-client-side-dropdown label="{{t('documentStatus')}}" type="multiple" nameKey="name" valueKey="id"
+                                        [data]="documentStatusList" formControlName="documentStatusId" [config]="config.documentStatusId"
+                                        (selectedValueNamesUpdated)="updateSelectedFilterValues($event)"></tis-client-side-dropdown>
+                                </div>
+                    
+                                <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                                    <tis-client-side-dropdown label="{{t('trackingStatus')}}" type="multiple" nameKey="name" valueKey="id"
+                                        [data]="trackingStatusList" formControlName="trackingStatusId" [config]="config.trackingStatusId"
+                                        (selectedValueNamesUpdated)="updateSelectedFilterValues($event)"></tis-client-side-dropdown>
+                                </div>
+                    
+                                <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                                    <tis-server-side-dropdown class="w-full" label="{{t('lastUpdatedBy')}}" type="single" nameKey="name"
+                                        valueKey="id" [data]="lastUpdatedByList" formControlName="lastUpdatedById"
+                                        [config]="config.lastUpdatedById">
+                                    </tis-server-side-dropdown>
+                                </div> -->
+                    
+                                <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                                    <tis-server-side-dropdown class="w-full" label="{{t('initiator')}}" type="multiple" nameKey="name"
+                                        valueKey="id" [data]="initiatorList" formControlName="initiatorId" [config]="config.initiatorId">
+                                    </tis-server-side-dropdown>
+                                </div> -->
+                    
+                                <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                                    <tis-server-side-dropdown class="w-full" label="{{t('owner')}}" type="multiple" nameKey="name"
+                                        valueKey="id" [data]="ownerList" formControlName="ownerId" [config]="config.ownerId">
+                                    </tis-server-side-dropdown>
+                                </div> -->
+                    
+                                <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                                    <tis-date appearance="outline" label="{{t('fromSubmissionDate')}}"
+                                        placeholder="{{t('fromSubmissionDate')}}" formControlName="fromDateCreated"
+                                        [isDisplayPickerLabel]="true"
+                                        (dateChange)="updateSelectedFilterValues({valueKey: null, value: 'From Submission Date' + dateTime.fromJSDate($event).toFormat('dd-MM-yyyy') , formControlName: 'fromDateCreated', formControlType: 'input'})">
+                                    </tis-date>
+                                </div> -->
+                    
+                                <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                                    <tis-date appearance="outline" label="{{t('toSubmissionDate')}}" placeholder="{{t('toSubmissionDate')}}"
+                                        formControlName="toDateCreated" [isDisplayPickerLabel]="true"
+                                        (dateChange)="updateSelectedFilterValues({valueKey: null, value: 'To Submission Date ' + dateTime.fromJSDate($event).toFormat('dd-MM-yyyy') , formControlName: 'toDateCreated', formControlType: 'input'})">
+                                    </tis-date>
+                                </div> -->
+<!--                     
+                                <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                                    <tis-date appearance="outline" label="{{t('fromLastUpdated')}}" placeholder="{{t('fromLastUpdated')}}"
+                                        formControlName="fromLastUpdated" [isDisplayPickerLabel]="true"
+                                        (dateChange)="updateSelectedFilterValues({valueKey: null, value: 'From Date Updated ' + dateTime.fromJSDate($event).toFormat('dd-MM-yyyy') , formControlName: 'fromLastUpdated', formControlType: 'input'})">
+                                    </tis-date>
+                                </div> -->
+                    
+                                <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                                    <tis-date appearance="outline" label="{{t('toLastUpdated')}}" placeholder="{{t('toLastUpdated')}}"
+                                        formControlName="toLastUpdated" [isDisplayPickerLabel]="true"
+                                        (dateChange)="updateSelectedFilterValues({valueKey: null, value: 'To Date Updated' + dateTime.fromJSDate($event).toFormat('dd-MM-yyyy') , formControlName: 'toLastUpdated', formControlType: 'input'})">
+                                    </tis-date>
+                                </div> -->
+                    
+                                <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
+                                    <mat-checkbox formControlName="showMyDocumentsOnly" class="angular-form-field"
+                                        (change)="updateSelectedFilterValues({valueKey: null, value: 'Show My Documents Only' , formControlName: 'showMyDocumentsOnly', formControlType: 'input'})">{{t('showMyDocumentsOnly')}}</mat-checkbox>
+                                </div> -->
+                    
+                                <div class="col-span-12 flex justify-between">
+                                    <button mat-button type="reset" class="angular-btn-primary angular-text-upper"
+                                        (click)="tableListViewWrapperComponent.resetFilters()">
+                                        {{t('resetAll')}}
+                                    </button>
+                                    <button mat-raised-button type="submit" class="angular-text-upper angular-btn-filled-primary">
+                                        {{t('applyFilters')}}
+                                    </button>
+                                </div>
+                    
+                            </div>
+                    
+                        </div>
+                    </form>
+
+                </ng-container>
+                <!-- Filter Section End -->
+
+                <!-- TABLE START -->
+                <ng-template let-column="colDef" let-element="colData" #clientColumnTemplate>
+                    <div class="flex items-center gap-2">
+                        <!-- @if (element.fav) {
+                        <svg class="w-4 h-4 text-yellow-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        } @else {
+                        <svg class="w-4 h-4 text-gray-300 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        } -->
+                        <div>
+                        <div class="font-[500]">{{element.name}}</div>
+                        <div class="text-xs">{{element.code}}</div>
+                        </div>
+                    </div>
+                </ng-template>
+
+                <ng-template let-column="colDef" let-element="colData" #propensityColumnTemplate>
+                    <span class="inline-flex items-center gap-1 font-semibold" [class.text-green-500]="element.trend==='up'" [class.text-red-500]="element.trend==='down'">
+                        <!-- @if (element.trend === 'up') {
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        } @else {
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+                        } -->
+                        {{element.propensity}}%
+                    </span>
+                </ng-template>
+
+                <ng-template let-column="colDef" let-element="colData" #statusColumnTemplate>
+                    <span class="angular-badge angular-badge-xs angular-badge-no-border"
+                        [class.angular-badge-outline-success]="element.status === 'active'"
+                        [class.angular-badge-outline-secondary-2]="element.status === 'inactive'"
+                        [class.angular-badge-outline-primary]="element.status === 'new'"
+                        [class.angular-badge-outline-danger]="element.status === 'churned'"
+                    >
+                        {{
+                            element.status === 'active' ? t('active') : 
+                            element.status === 'inactive' ? t('inactive') : 
+                            element.status === 'new' ? t('new') : t('churned')
+                        }}
+                    </span>
+                </ng-template>
+
+                <ng-template let-column="colDef" let-element="colData" #actionColumnTemplate>
+                    <ul class="angular-btn-group">
+                        <li class="angular-btn-group-item">
+                            <button mat-stroked-button class="angular-bg-light angular-btn-sm">
+                                <div class="flex items-center">
+                                    <mat-icon>visibility</mat-icon>
+                                    <span class="lg:inline hidden ml-2">{{t("viewDetail")}}</span>
+                                </div>
+                            </button>
+                        </li>
+                    </ul>
+                </ng-template>
+
+                <ng-template let-column="colDef" let-element="colData" #headerTemplateForEachRowForMobileResponsive>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <p>Table Header for Mobile Responsive</p>
+                        <button mat-icon-button (click)="toggleExpandForMobileResponsive(element)">
+                            @if (!isRowExpandedForMobileResponsive(element)) {
+                            <mat-icon>expand_more</mat-icon>
+                            }
+                            @if (isRowExpandedForMobileResponsive(element)) {
+                            <mat-icon>expand_less</mat-icon>
+                            }
+                        </button>
+                    </div>
+                </ng-template>
+
+                <ng-template let-column="colDef" let-element="colData" #expandedDetailTemplateForMobileResponsive>
+                    @if(isRowExpandedForMobileResponsive(element)){
+                        <p>Expanded Detail Template for Mobile Responsive</p>
+                        <p>{{element | json}}</p>
+                    }
+                </ng-template>
+                <!-- TABLE END -->
+            </angular-smart-data-table>
+        </div>
+    </div>
+</ng-container>
