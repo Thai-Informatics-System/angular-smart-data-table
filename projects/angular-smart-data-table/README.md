@@ -1,5 +1,5 @@
 
-# Angular Smart Table Viewer
+# Angular Smart Data Table
 
 `@servicemind.tis/angular-smart-data-table` is an Angular component library that provides a highly configurable and reusable smart table component for enterprise applications.
 
