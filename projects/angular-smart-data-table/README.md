@@ -23,6 +23,12 @@
 npm install @servicemind.tis/angular-smart-data-table
 ```
 
+### Peer Dependencies
+
+```bash
+npm install @angular/material @angular/cdk
+```
+
 ---
 
 ## 🔧 Usage Example
