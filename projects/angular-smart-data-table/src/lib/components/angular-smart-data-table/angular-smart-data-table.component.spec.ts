@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AngularSmartTableViewerComponent } from './angular-smart-data-table.component';
+import { AngularSmartDataTableComponent } from './angular-smart-data-table.component';
 
-describe('AngularSmartTableViewerComponent', () => {
-  let component: AngularSmartTableViewerComponent;
-  let fixture: ComponentFixture<AngularSmartTableViewerComponent>;
+describe('AngularSmartDataTableComponent', () => {
+  let component: AngularSmartDataTableComponent;
+  let fixture: ComponentFixture<AngularSmartDataTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AngularSmartTableViewerComponent]
+      declarations: [AngularSmartDataTableComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AngularSmartTableViewerComponent);
+    fixture = TestBed.createComponent(AngularSmartDataTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserCustomizationService } from '../../services/user-customization.service';
 import { AngularHelperService } from '../../services/angular-helper.service';
-import { AngularSmartTableConfirmationDialogComponent } from '../angular-smart-table-confirmation-dialog/angular-smart-table-confirmation-dialog.component';
+import { AngularSmartDataTableConfirmationDialogComponent } from '../angular-smart-data-table-confirmation-dialog/angular-smart-data-table-confirmation-dialog.component';
 import { CreateColumnsTemplateComponent } from '../create-columns-template/create-columns-template.component';
 import type { ColumnCustomizationUrlConfig } from '../../interfaces/url-config.type';
 
@@ -140,7 +140,7 @@ export class AngularColumnsBtnComponent {
           cancelButtonClass: "angular-btn-primary"
         };
     
-        const dialogRef = this.dialog.open(AngularSmartTableConfirmationDialogComponent, {
+        const dialogRef = this.dialog.open(AngularSmartDataTableConfirmationDialogComponent, {
           width: "30%",
           minWidth: '370px',
           // panelClass: ['angular-simple-confirmation'],

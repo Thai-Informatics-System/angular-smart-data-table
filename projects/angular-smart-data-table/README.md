@@ -67,7 +67,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import {
   SmartTableWrapperColumnsConfig,
   SmartTableWrapperRowsConfig,
-  AngularSmartTableViewerComponent,
+  AngularSmartDataTableComponent,
   ColumnCustomizationUrlConfig
 } from 'angular-smart-data-table';
 
@@ -77,7 +77,7 @@ import {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild('mainTableWrapper') tableListViewWrapperComponent!: AngularSmartTableViewerComponent;
+  @ViewChild('mainTableWrapper') tableListViewWrapperComponent!: AngularSmartDataTableComponent;
 
   columnsCodeMapping: SmartTableWrapperColumnsConfig[] = [
     { name: 'action', serverKeyCode: 'action', type: 'action', sort: false, template: this.actionColumnTemplate },
@@ -244,7 +244,7 @@ export type DataNotFoundConfig = {
 
 ## 📦 Module Setup
 
-Make sure to import `AngularSmartTableViewerModule` and necessary Angular Material modules in your app module or standalone components.
+Make sure to import `AngularSmartDataTableModule` and necessary Angular Material modules in your app module or standalone components.
 
 ---
 

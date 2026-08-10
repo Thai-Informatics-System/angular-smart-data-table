@@ -11,7 +11,7 @@
         </mat-form-field>
     </div>
 
-    <mat-dialog-content [appScrolling]="true" class="w-100 p-0 m-0" style="max-height: 60vh !important;">
+    <mat-dialog-content [angularSmartDataTableScrolling]="true" class="w-100 p-0 m-0" style="max-height: 60vh !important;">
         <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
             <div class="example-box" *ngFor="let item of listComponentColumns, let ndx = index" cdkDrag>
                 <div class="width-100 example-div">

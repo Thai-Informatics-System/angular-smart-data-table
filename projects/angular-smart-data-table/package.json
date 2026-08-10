@@ -1,9 +1,23 @@
 {
   "name": "@servicemind.tis/angular-smart-data-table",
-  "version": "2.4.20",
+  "version": "1.0.0",
+  "description": "Configurable Angular Material data table with server-side pagination, sorting, URL-synced filters, column customization, and custom cell templates.",
+  "keywords": [
+    "angular",
+    "angular-material",
+    "data-table",
+    "datatable",
+    "table",
+    "pagination",
+    "sorting",
+    "filtering",
+    "column-customization"
+  ],
+  "author": "Thai Informatics System",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Thai-Informatics-System/angular-smart-data-table.git"
+    "url": "git+https://github.com/Thai-Informatics-System/angular-smart-data-table.git"
   },
   "homepage": "https://github.com/Thai-Informatics-System/angular-smart-data-table#readme",
   "bugs": {

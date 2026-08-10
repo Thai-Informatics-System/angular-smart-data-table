@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AngularSmartTableViewerService } from './angular-smart-data-table.service';
+import { AngularSmartDataTableService } from './angular-smart-data-table.service';
 
-describe('AngularSmartTableViewerService', () => {
-  let service: AngularSmartTableViewerService;
+describe('AngularSmartDataTableService', () => {
+  let service: AngularSmartDataTableService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AngularSmartTableViewerService);
+    service = TestBed.inject(AngularSmartDataTableService);
   });
 
   it('should be created', () => {

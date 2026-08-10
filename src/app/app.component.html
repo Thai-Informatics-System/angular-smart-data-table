@@ -38,69 +38,69 @@
                             <div class="grid grid-cols-12 gap-x-3">
                     
                                 <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                                    <tis-client-side-dropdown label="{{t('company')}}" type="single" nameKey="name" valueKey="id"
+                                    <angular-client-side-dropdown label="{{t('company')}}" type="single" nameKey="name" valueKey="id"
                                         [data]="companyList" formControlName="companyId" [config]="config.companyId"
-                                        (selectedValueNamesUpdated)="updateSelectedFilterValues($event)"></tis-client-side-dropdown>
+                                        (selectedValueNamesUpdated)="updateSelectedFilterValues($event)"></angular-client-side-dropdown>
                                 </div> -->
                     
                                 <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                                    <tis-client-side-dropdown label="{{t('documentStatus')}}" type="multiple" nameKey="name" valueKey="id"
+                                    <angular-client-side-dropdown label="{{t('documentStatus')}}" type="multiple" nameKey="name" valueKey="id"
                                         [data]="documentStatusList" formControlName="documentStatusId" [config]="config.documentStatusId"
-                                        (selectedValueNamesUpdated)="updateSelectedFilterValues($event)"></tis-client-side-dropdown>
+                                        (selectedValueNamesUpdated)="updateSelectedFilterValues($event)"></angular-client-side-dropdown>
                                 </div>
                     
                                 <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                                    <tis-client-side-dropdown label="{{t('trackingStatus')}}" type="multiple" nameKey="name" valueKey="id"
+                                    <angular-client-side-dropdown label="{{t('trackingStatus')}}" type="multiple" nameKey="name" valueKey="id"
                                         [data]="trackingStatusList" formControlName="trackingStatusId" [config]="config.trackingStatusId"
-                                        (selectedValueNamesUpdated)="updateSelectedFilterValues($event)"></tis-client-side-dropdown>
+                                        (selectedValueNamesUpdated)="updateSelectedFilterValues($event)"></angular-client-side-dropdown>
                                 </div>
                     
                                 <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                                    <tis-server-side-dropdown class="w-full" label="{{t('lastUpdatedBy')}}" type="single" nameKey="name"
+                                    <angular-server-side-dropdown class="w-full" label="{{t('lastUpdatedBy')}}" type="single" nameKey="name"
                                         valueKey="id" [data]="lastUpdatedByList" formControlName="lastUpdatedById"
                                         [config]="config.lastUpdatedById">
-                                    </tis-server-side-dropdown>
+                                    </angular-server-side-dropdown>
                                 </div> -->
                     
                                 <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                                    <tis-server-side-dropdown class="w-full" label="{{t('initiator')}}" type="multiple" nameKey="name"
+                                    <angular-server-side-dropdown class="w-full" label="{{t('initiator')}}" type="multiple" nameKey="name"
                                         valueKey="id" [data]="initiatorList" formControlName="initiatorId" [config]="config.initiatorId">
-                                    </tis-server-side-dropdown>
+                                    </angular-server-side-dropdown>
                                 </div> -->
                     
                                 <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                                    <tis-server-side-dropdown class="w-full" label="{{t('owner')}}" type="multiple" nameKey="name"
+                                    <angular-server-side-dropdown class="w-full" label="{{t('owner')}}" type="multiple" nameKey="name"
                                         valueKey="id" [data]="ownerList" formControlName="ownerId" [config]="config.ownerId">
-                                    </tis-server-side-dropdown>
+                                    </angular-server-side-dropdown>
                                 </div> -->
                     
                                 <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                                    <tis-date appearance="outline" label="{{t('fromSubmissionDate')}}"
+                                    <angular-date-picker appearance="outline" label="{{t('fromSubmissionDate')}}"
                                         placeholder="{{t('fromSubmissionDate')}}" formControlName="fromDateCreated"
                                         [isDisplayPickerLabel]="true"
                                         (dateChange)="updateSelectedFilterValues({valueKey: null, value: 'From Submission Date' + dateTime.fromJSDate($event).toFormat('dd-MM-yyyy') , formControlName: 'fromDateCreated', formControlType: 'input'})">
-                                    </tis-date>
+                                    </angular-date-picker>
                                 </div> -->
                     
                                 <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                                    <tis-date appearance="outline" label="{{t('toSubmissionDate')}}" placeholder="{{t('toSubmissionDate')}}"
+                                    <angular-date-picker appearance="outline" label="{{t('toSubmissionDate')}}" placeholder="{{t('toSubmissionDate')}}"
                                         formControlName="toDateCreated" [isDisplayPickerLabel]="true"
                                         (dateChange)="updateSelectedFilterValues({valueKey: null, value: 'To Submission Date ' + dateTime.fromJSDate($event).toFormat('dd-MM-yyyy') , formControlName: 'toDateCreated', formControlType: 'input'})">
-                                    </tis-date>
+                                    </angular-date-picker>
                                 </div> -->
 <!--                     
                                 <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                                    <tis-date appearance="outline" label="{{t('fromLastUpdated')}}" placeholder="{{t('fromLastUpdated')}}"
+                                    <angular-date-picker appearance="outline" label="{{t('fromLastUpdated')}}" placeholder="{{t('fromLastUpdated')}}"
                                         formControlName="fromLastUpdated" [isDisplayPickerLabel]="true"
                                         (dateChange)="updateSelectedFilterValues({valueKey: null, value: 'From Date Updated ' + dateTime.fromJSDate($event).toFormat('dd-MM-yyyy') , formControlName: 'fromLastUpdated', formControlType: 'input'})">
-                                    </tis-date>
+                                    </angular-date-picker>
                                 </div> -->
                     
                                 <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">
-                                    <tis-date appearance="outline" label="{{t('toLastUpdated')}}" placeholder="{{t('toLastUpdated')}}"
+                                    <angular-date-picker appearance="outline" label="{{t('toLastUpdated')}}" placeholder="{{t('toLastUpdated')}}"
                                         formControlName="toLastUpdated" [isDisplayPickerLabel]="true"
                                         (dateChange)="updateSelectedFilterValues({valueKey: null, value: 'To Date Updated' + dateTime.fromJSDate($event).toFormat('dd-MM-yyyy') , formControlName: 'toLastUpdated', formControlType: 'input'})">
-                                    </tis-date>
+                                    </angular-date-picker>
                                 </div> -->
                     
                                 <!-- <div class="col-span-12 md:col-span-4 lg:col-span-3">

@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar';
-import { AngularSmartTableErrorDialogComponent } from '../components/angular-smart-table-error-dialog/angular-smart-table-error-dialog.component';
+import { AngularSmartDataTableErrorDialogComponent } from '../components/angular-smart-data-table-error-dialog/angular-smart-data-table-error-dialog.component';
 import { Observable } from 'rxjs';
 
 
@@ -45,7 +45,7 @@ export class AngularHelperService {
         buttonClass: "angular-btn-primary",
       };
 
-      const dialogRef: MatDialogRef<AngularSmartTableErrorDialogComponent> = this.dialog.open(AngularSmartTableErrorDialogComponent, {
+      const dialogRef: MatDialogRef<AngularSmartDataTableErrorDialogComponent> = this.dialog.open(AngularSmartDataTableErrorDialogComponent, {
         width: "550px",
         panelClass: ['angular-simple-confirmation'],
         data: confirmBoxData,

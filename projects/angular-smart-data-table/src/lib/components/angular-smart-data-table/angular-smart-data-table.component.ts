@@ -33,7 +33,7 @@ import type { ColumnCustomizationUrlConfig } from '../../interfaces/url-config.t
   styleUrl: './angular-smart-data-table.component.css',
   providers: [CdkColumnDef],
 })
-export class AngularSmartTableViewerComponent implements OnDestroy {
+export class AngularSmartDataTableComponent implements OnDestroy {
   homeUrl = '';
 
   @Input({ required: true }) columnCustomizationUrlConfig!: ColumnCustomizationUrlConfig;

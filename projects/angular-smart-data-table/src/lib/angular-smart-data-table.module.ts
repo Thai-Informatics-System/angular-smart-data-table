@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { AngularSmartTableViewerComponent } from './components/angular-smart-data-table/angular-smart-data-table.component';
+import { AngularSmartDataTableComponent } from './components/angular-smart-data-table/angular-smart-data-table.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,8 +14,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AngularColumnsBtnComponent } from './components/angular-columns-btn/angular-columns-btn.component';
-import { AngularSmartTableConfirmationDialogComponent } from './components/angular-smart-table-confirmation-dialog/angular-smart-table-confirmation-dialog.component';
-import { AngularSmartTableErrorDialogComponent } from './components/angular-smart-table-error-dialog/angular-smart-table-error-dialog.component';
+import { AngularSmartDataTableConfirmationDialogComponent } from './components/angular-smart-data-table-confirmation-dialog/angular-smart-data-table-confirmation-dialog.component';
+import { AngularSmartDataTableErrorDialogComponent } from './components/angular-smart-data-table-error-dialog/angular-smart-data-table-error-dialog.component';
 import { CreateColumnsTemplateComponent } from './components/create-columns-template/create-columns-template.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -70,11 +70,11 @@ const uiImports = [
   declarations: [
     ...directives,
     ...pipes,
-    AngularSmartTableViewerComponent,
+    AngularSmartDataTableComponent,
     AngularColumnsBtnComponent,
     CreateColumnsTemplateComponent,
-    AngularSmartTableErrorDialogComponent,
-    AngularSmartTableConfirmationDialogComponent
+    AngularSmartDataTableErrorDialogComponent,
+    AngularSmartDataTableConfirmationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -86,7 +86,7 @@ const uiImports = [
     DragDropModule
   ],
   exports: [
-    AngularSmartTableViewerComponent
+    AngularSmartDataTableComponent
   ]
 })
-export class AngularSmartTableViewerModule { }
+export class AngularSmartDataTableModule { }

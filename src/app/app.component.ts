@@ -1,6 +1,6 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { SelectedFilterDisplayValuesType, SelectedFilterDisplayValueType, SmartTableWrapperColumnsConfig, AngularSmartTableViewerComponent, AngularSmartTableViewerModule } from 'angular-smart-data-table';
+import { SelectedFilterDisplayValuesType, SelectedFilterDisplayValueType, SmartTableWrapperColumnsConfig, AngularSmartDataTableComponent, AngularSmartDataTableModule } from 'angular-smart-data-table';
 import type { ColumnCustomizationUrlConfig, SmartTableWrapperRowsConfig } from 'angular-smart-data-table';
 import { TranslocoModule, TranslocoService, provideTranslocoScope } from '@ngneat/transloco';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +23,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ClientSideMultipleSelectionConfig, ClientSideSingleSelectionConfig, ServerSideSingleSelectionConfig, TisSearchAndSelectDropdownModule } from '@servicemind.tis/tis-search-and-select-dropdown';
+import { ClientSideMultipleSelectionConfig, ClientSideSingleSelectionConfig, ServerSideSingleSelectionConfig, AngularSearchAndSelectDropdownModule } from '@servicemind.tis/angular-search-and-select-dropdown';
 
 
 const uiImports = [
@@ -36,19 +36,19 @@ const uiImports = [
   LayoutModule, // For Breakpoint Observer,
   ScrollingModule, // For cdk-virtual-scroll
   MatSortModule,
-  TisSearchAndSelectDropdownModule
+  AngularSearchAndSelectDropdownModule
 ];
 
 @Component({
   selector: 'app-root',
-  imports: [TranslocoModule, AngularSmartTableViewerModule, CommonModule, FormsModule, ReactiveFormsModule, ...uiImports],
+  imports: [TranslocoModule, AngularSmartDataTableModule, CommonModule, FormsModule, ReactiveFormsModule, ...uiImports],
   providers: [provideTranslocoScope('common')],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'angular-ng-smart-table-viewer';
-  @ViewChild('mainTableWrapper') tableListViewWrapperComponent!: AngularSmartTableViewerComponent;
+  @ViewChild('mainTableWrapper') tableListViewWrapperComponent!: AngularSmartDataTableComponent;
 
   columnsCodeMapping: SmartTableWrapperColumnsConfig[] = [
     { name: "client", type: 'string', serverKeyCode: "name", template: this.clientColumnTemplate, sort: false },
