@@ -1,6 +1,6 @@
 {
   "name": "@servicemind.tis/angular-smart-data-table",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Configurable Angular Material data table with server-side pagination, sorting, URL-synced filters, column customization, and custom cell templates.",
   "keywords": [
     "angular",
