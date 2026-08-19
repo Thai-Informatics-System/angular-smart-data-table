@@ -1,0 +1,42 @@
+.angular-text-upper {
+    text-transform: uppercase !important;
+}
+
+.angular-btn-primary:not(:disabled) {
+    color: var(--angular-primary) !important;
+}
+
+.angular-btn-primary:not(:disabled):hover ::ng-deep .mat-mdc-button-persistent-ripple::before {
+    background-color: var(--angular-primary);
+}
+
+.angular-text-danger {
+    color: var(--angular-danger) !important;
+}
+
+::ng-deep .angular-simple-confirmation .mat-mdc-dialog-title,
+::ng-deep .angular-smart-data-table-error-dialog .mat-mdc-dialog-title {
+    padding: 8px 16px;
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    width: 100%;
+    align-items: center;
+}
+
+::ng-deep .angular-simple-confirmation .mat-mdc-dialog-title::before,
+::ng-deep .angular-smart-data-table-error-dialog .mat-mdc-dialog-title::before {
+    content: unset;
+}
+
+::ng-deep .angular-simple-confirmation .mat-mdc-dialog-content,
+::ng-deep .angular-smart-data-table-error-dialog .mat-mdc-dialog-content {
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+::ng-deep .angular-simple-confirmation .mat-mdc-dialog-actions,
+::ng-deep .angular-smart-data-table-error-dialog .mat-mdc-dialog-actions {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    justify-content: end;
+}

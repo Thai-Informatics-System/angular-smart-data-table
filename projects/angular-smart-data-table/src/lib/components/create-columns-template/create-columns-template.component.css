@@ -131,6 +131,37 @@
     background-color: var(--angular-primary, var(--mat-sys-primary, #3838a2)) !important;
 }
 
+::ng-deep .angular-mat-form-field .mdc-notched-outline__notch {
+    border-right: 0 !important;
+}
+
+::ng-deep .angular-create-columns-template .mat-mdc-dialog-title,
+::ng-deep .angular-create-new-columns-template .mat-mdc-dialog-title {
+    padding: 16px 24px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+::ng-deep .angular-create-columns-template .mat-mdc-dialog-title::before,
+::ng-deep .angular-create-new-columns-template .mat-mdc-dialog-title::before {
+    content: unset;
+}
+
+::ng-deep .angular-create-columns-template .mat-mdc-dialog-content,
+::ng-deep .angular-create-new-columns-template .mat-mdc-dialog-content {
+    padding: 10px 24px !important;
+    padding-top: 0 !important;
+}
+
+::ng-deep .angular-create-columns-template .mat-mdc-dialog-actions,
+::ng-deep .angular-create-new-columns-template .mat-mdc-dialog-actions {
+    padding: 24px;
+    justify-content: space-between;
+}
+
 /* Checkbox styles were mentioned as moved to common-style.scss
   If needed again, uncomment and include the following:
   
