@@ -283,6 +283,12 @@ Set these CSS variables on `:root` or `body`. All have fallbacks — unset token
   --angular-radius: 5px;
   --angular-page-padding: 15px;
   --angular-page-title-size: 24px;
+  --angular-search-bg: #ffffff;
+  --angular-search-border: #d0d0d0;
+  --angular-search-icon: #212121;
+  --angular-search-placeholder: #9e9e9e;
+  --angular-search-radius: 4px;
+  --angular-search-height: 40px;
 }
 ```
 

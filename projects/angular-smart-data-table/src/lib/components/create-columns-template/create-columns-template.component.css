@@ -118,11 +118,11 @@
 
 .angular-cancel-button:not(:disabled) {
     text-transform: uppercase !important;
-    color: var(--angular-primary, var(--mat-sys-primary, #3838a2)) !important;
+    color: var(--angular-danger, #bb333b) !important;
 }
 
 .angular-cancel-button:not(:disabled):hover .mat-mdc-button-persistent-ripple::before {
-    background-color: var(--angular-primary, var(--mat-sys-primary, #3838a2));
+    background-color: var(--angular-danger, #bb333b);
 }
 
 .angular-submit-button:not(:disabled) {
