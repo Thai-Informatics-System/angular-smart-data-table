@@ -290,6 +290,8 @@ Set these CSS variables on `:root` or `body`. All have fallbacks — unset token
   --angular-columns-btn-color: var(--angular-text-body);
   --angular-search-radius: 4px;
   --angular-search-height: 40px;
+  --angular-paginator-height: 25px;
+  --angular-paginator-width: 56px;
 }
 ```
 

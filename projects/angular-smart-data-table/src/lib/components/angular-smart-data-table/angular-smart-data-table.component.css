@@ -311,12 +311,18 @@
     border-radius: 0 0 var(--angular-radius, 5px) var(--angular-radius, 5px);
 }
 
+::ng-deep .angular-table-paginator .mat-mdc-paginator-page-size-select {
+    width: var(--angular-paginator-width, 56px);
+}
+
 ::ng-deep .angular-table-paginator .mat-mdc-text-field-wrapper {
-    height: 25px;
+    height: var(--angular-paginator-height, 25px);
 }
 
 ::ng-deep .angular-table-paginator .mat-mdc-form-field-infix {
     padding: 0;
+    min-height: var(--angular-paginator-height, 25px);
+    width: var(--angular-paginator-width, 56px);
 }
 
 .angular-table thead {
