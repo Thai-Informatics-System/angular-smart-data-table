@@ -18,5 +18,5 @@
         <mat-icon style="position: absolute; right: 2rem;" class="edit-button" (mouseover)="onMouseOverOut($event, `var(--angular-edit-icon, var(--angular-primary, var(--mat-sys-primary, #3838a2)))`)" (mouseout)="onMouseOverOut($event, '')" (click)="isEditTemplate = true">edit</mat-icon>
     </button>
     <mat-divider class="angular-mat-divider" style="margin: 0px;"></mat-divider>
-    <button mat-menu-item class="angular-create-columns-template-button" style="color: var(--angular-primary, var(--mat-sys-primary, #3838a2));" (click)="createNewTemplateDialog()"><mat-icon style="color: var(--angular-primary, var(--mat-sys-primary, #3838a2));">add</mat-icon> {{t?.angularColumnsBtnComponent?.createNewView}}</button>
+    <button mat-menu-item class="angular-create-columns-template-button" style="color: var(--angular-primary, var(--mat-sys-primary, #3838a2));" (click)="createNewTemplateDialog()"><mat-icon style="color: var(--angular-primary, var(--mat-sys-primary, #3838a2));">add</mat-icon> {{t?.angularColumnsBtnComponent?.createNewView || 'Create New View'}}</button>
 </mat-menu>
