@@ -45,11 +45,11 @@
 }
 
 .mat-mdc-table-sticky-border-elem-right {
-    border-left: 1px solid var(--angular-table-border, #e0e0e0);
+    border-left: 1px solid var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
 }
 
 .mat-mdc-table-sticky-border-elem-left {
-    border-right: 1px solid var(--angular-table-border, #e0e0e0);
+    border-right: 1px solid var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
 }
 
 .search-mat-form-field {
@@ -144,12 +144,12 @@
 
 .angular-table-bordered th,
 .angular-table-bordered td {
-    border-left: 1px solid var(--angular-table-border, #e0e0e0);
+    border-left: 1px solid var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
 }
 
 .angular-table-bordered th:first-child,
 .angular-table-bordered td:first-child {
-    border-left: 0px solid var(--angular-table-border, #e0e0e0);
+    border-left: 0px solid var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
 }
 
 .angular-table-bordered .bg-unset {
@@ -274,7 +274,7 @@
 }
 
 .angular-table-container-body {
-    border: 1px solid var(--mat-table-row-item-outline-color);
+    border: 1px solid var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
     border-radius: var(--angular-radius, 5px);
 }
 
@@ -336,7 +336,7 @@
     padding: 0 16px !important;
     font-size: 14px !important;
     color: var(--angular-text-muted, #757575);
-    border-bottom-color: var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));
+    border-bottom-color: var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
     border-bottom-width: var(--mat-table-row-item-outline-width, 1px);
     border-bottom-style: solid;
     letter-spacing: var(--mat-table-header-headline-tracking);
@@ -369,7 +369,7 @@
     text-overflow: ellipsis;
     padding: 0 16px !important;
     font-size: 14px !important;
-    border-bottom-color: var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));
+    border-bottom-color: var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
     border-bottom-width: var(--mat-table-row-item-outline-width, 1px);
     border-bottom-style: solid;
     letter-spacing: var(--mat-table-header-headline-tracking);

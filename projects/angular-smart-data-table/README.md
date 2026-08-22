@@ -277,7 +277,7 @@ Set these CSS variables on `:root` or `body`. All have fallbacks — unset token
   --angular-breadcrumb-separator: #6c757d;
   --angular-icon-muted: rgba(0, 0, 0, 0.54);
   --angular-filter-badge-color: #424242;
-  --angular-table-border: #e0e0e0;
+  --angular-table-border: var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12)));
   --angular-divider: rgba(0, 0, 0, 0.12);
   --angular-border-width: 1px;
   --angular-radius: 5px;
