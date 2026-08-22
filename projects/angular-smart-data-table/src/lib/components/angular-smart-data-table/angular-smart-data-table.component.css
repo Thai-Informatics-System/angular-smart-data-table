@@ -52,6 +52,12 @@
     border-right: 1px solid var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
 }
 
+.mat-mdc-cell,
+.mat-mdc-header-cell,
+.mat-mdc-footer-cell {
+    border-bottom-color: var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
+}
+
 .search-mat-form-field {
     width: 100%;
 }
