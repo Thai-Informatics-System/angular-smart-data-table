@@ -1,21 +1,21 @@
 .angular-btn-primary:not(:disabled) {
-    color: var(--angular-primary) !important;
+    color: var(--angular-primary, #3838a2) !important;
 }
 
 .angular-btn-primary:not(:disabled):hover ::ng-deep .mat-mdc-button-persistent-ripple::before {
-    background-color: var(--angular-primary);
+    background-color: var(--angular-primary, #3838a2);
 }
 
 .angular-btn-danger:not(:disabled) {
-    color: var(--angular-danger) !important;
+    color: var(--angular-danger, #bb333b) !important;
 }
 
 .angular-btn-danger:not(:disabled):hover ::ng-deep .mat-mdc-button-persistent-ripple::before {
-    background-color: var(--angular-danger);
+    background-color: var(--angular-danger, #bb333b);
 }
 
 .angular-text-danger {
-    color: var(--angular-danger) !important;
+    color: var(--angular-danger, #bb333b) !important;
 }
 
 ::ng-deep .angular-smart-data-table-confirmation-dialog .mat-mdc-dialog-title::before {

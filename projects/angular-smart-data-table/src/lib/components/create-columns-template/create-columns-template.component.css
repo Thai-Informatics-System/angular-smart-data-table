@@ -12,21 +12,21 @@
 
 .example-list {
     min-height: 60px;
-    background: white;
+    background: var(--angular-surface, white);
     border-radius: 4px;
     overflow: hidden;
     display: block;
 }
 
 .example-box {
-    border-bottom: solid 1px #EEE;
-    color: rgba(0, 0, 0, 0.87);
+    border-bottom: solid 1px var(--angular-divider, #EEE);
+    color: var(--angular-text-body, rgba(0, 0, 0, 0.87));
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    background: white;
+    background: var(--angular-surface, white);
     font-size: 14px;
 }
 
@@ -127,7 +127,7 @@
 
 .angular-submit-button:not(:disabled) {
     text-transform: uppercase !important;
-    color: white !important;
+    color: var(--angular-on-primary, white) !important;
     background-color: var(--angular-primary, var(--mat-sys-primary, #3838a2)) !important;
 }
 
@@ -138,7 +138,7 @@
 ::ng-deep .angular-create-columns-template .mat-mdc-dialog-title,
 ::ng-deep .angular-create-new-columns-template .mat-mdc-dialog-title {
     padding: 16px 24px;
-    background-color: #e0e0e0;
+    background-color: var(--angular-dialog-header-bg, #e0e0e0);
     display: flex;
     justify-content: space-between;
     width: 100%;

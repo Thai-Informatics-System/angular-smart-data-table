@@ -3,15 +3,15 @@
 }
 
 .angular-btn-primary:not(:disabled) {
-    color: var(--angular-primary) !important;
+    color: var(--angular-primary, #3838a2) !important;
 }
 
 .angular-btn-primary:not(:disabled):hover ::ng-deep .mat-mdc-button-persistent-ripple::before {
-    background-color: var(--angular-primary);
+    background-color: var(--angular-primary, #3838a2);
 }
 
 .angular-text-danger {
-    color: var(--angular-danger) !important;
+    color: var(--angular-danger, #bb333b) !important;
 }
 
 ::ng-deep .angular-simple-confirmation .mat-mdc-dialog-title,
@@ -37,6 +37,6 @@
 
 ::ng-deep .angular-simple-confirmation .mat-mdc-dialog-actions,
 ::ng-deep .angular-smart-data-table-error-dialog .mat-mdc-dialog-actions {
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 1px solid var(--angular-divider, rgba(0, 0, 0, 0.12));
     justify-content: end;
 }

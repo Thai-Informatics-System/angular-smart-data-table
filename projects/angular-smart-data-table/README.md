@@ -254,6 +254,39 @@ Make sure to import `AngularSmartDataTableModule` and necessary Angular Material
 
 ---
 
+## Theming
+
+Set these CSS variables on `:root` or `body`. All have fallbacks — unset tokens keep the library defaults.
+
+```css
+:root {
+  --angular-primary: #3838a2;
+  --angular-danger: #bb333b;
+  --angular-heading-color: #212121;
+  --angular-light: #f5f5f5;
+  --angular-on-primary: #ffffff;
+  --angular-cancel: var(--angular-danger);
+  --angular-delete-icon: var(--angular-danger);
+  --angular-edit-icon: var(--angular-primary);
+  --angular-page-bg: #ffffff;
+  --angular-surface: #ffffff;
+  --angular-dialog-header-bg: #e0e0e0;
+  --angular-text-muted: #757575;
+  --angular-text-subtle: #9e9e9e;
+  --angular-text-body: rgba(0, 0, 0, 0.87);
+  --angular-breadcrumb-separator: #6c757d;
+  --angular-icon-muted: rgba(0, 0, 0, 0.54);
+  --angular-filter-badge-color: #424242;
+  --angular-table-border: #e0e0e0;
+  --angular-divider: rgba(0, 0, 0, 0.12);
+  --angular-border-width: 1px;
+  --angular-radius: 5px;
+  --angular-page-padding: 15px;
+  --angular-page-title-size: 24px;
+}
+```
+
+---
 
 ## 🤝 Contributing
 

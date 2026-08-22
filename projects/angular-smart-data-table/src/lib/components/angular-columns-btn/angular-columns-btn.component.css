@@ -7,19 +7,19 @@
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .mat-mdc-menu-item {
-    color: #757575 !important;
+    color: var(--angular-text-muted, #757575) !important;
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .mat-mdc-menu-item .mat-icon {
-    color: #757575 !important;
+    color: var(--angular-text-muted, #757575) !important;
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .mat-mdc-menu-item .mat-icon.delete-button:hover {
-    color: var(--angular-danger, #bb333b) !important;
+    color: var(--angular-delete-icon, var(--angular-danger, #bb333b)) !important;
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .mat-mdc-menu-item .mat-icon.edit-button:hover {
-    color: var(--angular-primary, #3838a2) !important;
+    color: var(--angular-edit-icon, var(--angular-primary, #3838a2)) !important;
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .angular-create-columns-template-button {

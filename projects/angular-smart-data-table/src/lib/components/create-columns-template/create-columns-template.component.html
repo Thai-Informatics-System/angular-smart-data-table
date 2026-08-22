@@ -1,6 +1,6 @@
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h1 mat-dialog-title style="padding: 16px 24px; background-color: #e0e0e0; display: flex; justify-content: space-between; width: 100%; align-items: center;">
+        <h1 mat-dialog-title style="padding: 16px 24px; background-color: var(--angular-dialog-header-bg, #e0e0e0); display: flex; justify-content: space-between; width: 100%; align-items: center;">
         {{t?.createColumnsTemplate?.title}}
         <mat-icon (click)="onClose()" style="cursor: pointer;">clear</mat-icon>
     </h1>
@@ -16,7 +16,7 @@
             <div class="example-box" *ngFor="let item of listComponentColumns, let ndx = index" cdkDrag>
                 <div class="width-100 example-div">
                     <div class="example-item flex flex-row items-center">
-                        <mat-icon cdkDragHandle style="cursor: pointer; color: rgba(0, 0, 0, 0.54); font-size: 19px; width: 19px; height: 19px;">drag_indicator</mat-icon>
+                        <mat-icon cdkDragHandle style="cursor: pointer; color: var(--angular-icon-muted, rgba(0, 0, 0, 0.54)); font-size: 19px; width: 19px; height: 19px;">drag_indicator</mat-icon>
                         <span *ngIf="!data?.skipTranslation">{{t[item.column]}}</span>
                         <span *ngIf="data?.skipTranslation">{{customColumns[item.column]}}</span>
                     </div>
