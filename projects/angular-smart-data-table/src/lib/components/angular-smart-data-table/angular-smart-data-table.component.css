@@ -341,22 +341,22 @@
     line-height: var(--angular-paginator-height, 25px);
 }
 
-.angular-table thead {
+::ng-deep .angular-table thead {
     background-color: var(--angular-header-bg, var(--angular-light, #f5f5f5)) !important;
 }
 
-.angular-table thead tr {
+::ng-deep .angular-table thead tr {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: var(--mat-table-row-item-label-text-font, Roboto, sans-serif);
     line-height: var(--mat-table-row-item-label-text-line-height);
     font-size: var(--mat-table-row-item-label-text-size, 14px);
-    font-weight: 600;
+    font-weight: 500;
     height: var(--mat-table-row-item-container-height, 52px);
     color: var(--angular-header-color, var(--angular-heading-color, #212121));
 }
 
-.angular-table thead tr th {
+::ng-deep .angular-table thead tr th {
     box-sizing: border-box;
     overflow: hidden;
     text-align: left;
