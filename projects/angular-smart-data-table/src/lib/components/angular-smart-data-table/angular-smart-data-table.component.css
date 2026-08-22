@@ -148,11 +148,13 @@
     width: 100%;
 }
 
-.angular-table-bordered th {
+.angular-table-bordered th,
+.angular-table-bordered td {
     border-left: 1px solid var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
 }
 
-.angular-table-bordered th:first-child {
+.angular-table-bordered th:first-child,
+.angular-table-bordered td:first-child {
     border-left: 0;
 }
 
@@ -366,14 +368,9 @@
     border-bottom-color: var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
     border-bottom-width: var(--mat-table-row-item-outline-width, 1px);
     border-bottom-style: solid;
-    border-right: 1px solid var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
     letter-spacing: var(--mat-table-header-headline-tracking);
     font-weight: inherit;
     line-height: inherit;
-}
-
-.angular-table thead tr th:last-child {
-    border-right: 0;
 }
 
 .angular-table thead tr th.angular-pr-0 {
@@ -424,14 +421,6 @@
 .angular-mobile-responsive-table thead tr th,
 .angular-mobile-responsive-table tbody tr td {
     padding: 0 !important;
-}
-
-.angular-table-bordered > :not(caption) > * {
-    border-width: var(--angular-border-width, 1px) 0;
-}
-
-.angular-table-bordered > :not(caption) > * > * {
-    border-width: 0 var(--angular-border-width, 1px);
 }
 
 .angular-data-not-found {
