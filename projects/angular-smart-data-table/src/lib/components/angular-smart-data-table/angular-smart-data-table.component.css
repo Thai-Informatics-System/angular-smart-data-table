@@ -102,15 +102,20 @@
 }
 
 ::ng-deep .angular-table-search-field .mat-mdc-form-field-icon-prefix .material-icons,
-::ng-deep .angular-table-search-field .material-icons[matPrefix] {
-    color: var(--angular-search-icon, #212121);
+::ng-deep .angular-table-search-field .material-icons[matPrefix],
+::ng-deep .angular-table-search-field .mat-mdc-form-field-icon-suffix .material-icons {
+    color: var(--angular-search-icon, var(--angular-heading-color, #212121));
     font-size: 20px;
     width: 20px;
     height: 20px;
 }
 
+::ng-deep .angular-table-search-field input {
+    color: var(--angular-text-body, rgba(0, 0, 0, 0.87));
+}
+
 ::ng-deep .angular-table-search-field input::placeholder {
-    color: var(--angular-search-placeholder, #9e9e9e);
+    color: var(--angular-search-placeholder, var(--angular-text-subtle, #9e9e9e));
     opacity: 1;
 }
 

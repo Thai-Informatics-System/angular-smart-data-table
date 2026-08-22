@@ -1,5 +1,11 @@
 .angular-columns-btn {
     text-transform: uppercase !important;
+    background-color: var(--angular-light, #f5f5f5) !important;
+    color: var(--angular-columns-btn-color, var(--angular-text-body, rgba(0, 0, 0, 0.87))) !important;
+}
+
+.angular-columns-btn .mat-icon {
+    color: inherit;
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .mat-mdc-menu-content {

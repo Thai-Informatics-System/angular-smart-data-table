@@ -152,7 +152,7 @@
 
 ::ng-deep .angular-create-columns-template .mat-mdc-dialog-content,
 ::ng-deep .angular-create-new-columns-template .mat-mdc-dialog-content {
-    padding: 10px 24px !important;
+    padding: 10px 16px !important;
     padding-top: 0 !important;
 }
 
