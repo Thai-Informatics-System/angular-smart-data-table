@@ -148,14 +148,12 @@
     width: 100%;
 }
 
-.angular-table-bordered th,
-.angular-table-bordered td {
+.angular-table-bordered th {
     border-left: 1px solid var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
 }
 
-.angular-table-bordered th:first-child,
-.angular-table-bordered td:first-child {
-    border-left: 0px solid var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
+.angular-table-bordered th:first-child {
+    border-left: 0;
 }
 
 .angular-table-bordered .bg-unset {
@@ -342,7 +340,7 @@
 }
 
 .angular-table thead {
-    background-color: var(--angular-light, #f5f5f5) !important;
+    background-color: var(--angular-header-bg, var(--angular-light, #f8f9fa)) !important;
 }
 
 .angular-table thead tr {
@@ -351,9 +349,9 @@
     font-family: var(--mat-table-row-item-label-text-font, Roboto, sans-serif);
     line-height: var(--mat-table-row-item-label-text-line-height);
     font-size: var(--mat-table-row-item-label-text-size, 14px);
-    font-weight: 500;
+    font-weight: 600;
     height: var(--mat-table-row-item-container-height, 52px);
-    color: var(--mat-table-row-item-label-text-color, rgba(0, 0, 0, 0.87));
+    color: var(--angular-header-color, var(--angular-heading-color, #212121));
 }
 
 .angular-table thead tr th {
@@ -363,13 +361,19 @@
     text-overflow: ellipsis;
     padding: 0 16px !important;
     font-size: 14px !important;
-    color: var(--angular-text-muted, #757575);
+    color: var(--angular-header-color, var(--angular-heading-color, #212121));
+    background-color: var(--angular-header-bg, var(--angular-light, #f8f9fa));
     border-bottom-color: var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
     border-bottom-width: var(--mat-table-row-item-outline-width, 1px);
     border-bottom-style: solid;
+    border-right: 1px solid var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
     letter-spacing: var(--mat-table-header-headline-tracking);
     font-weight: inherit;
     line-height: inherit;
+}
+
+.angular-table thead tr th:last-child {
+    border-right: 0;
 }
 
 .angular-table thead tr th.angular-pr-0 {

@@ -1,7 +1,8 @@
 .angular-columns-btn {
     text-transform: uppercase !important;
-    background-color: var(--angular-light, #f5f5f5) !important;
-    color: var(--angular-columns-btn-color, var(--angular-text-body, rgba(0, 0, 0, 0.87))) !important;
+    background-color: var(--angular-columns-btn-bg, var(--angular-light, #eeeeee)) !important;
+    color: var(--angular-columns-btn-color, var(--angular-heading-color, #212121)) !important;
+    box-shadow: none !important;
 }
 
 .angular-columns-btn .mat-icon {

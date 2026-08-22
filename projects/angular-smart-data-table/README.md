@@ -287,7 +287,10 @@ Set these CSS variables on `:root` or `body`. All have fallbacks — unset token
   --angular-search-border: #d0d0d0;
   --angular-search-icon: var(--angular-heading-color);
   --angular-search-placeholder: var(--angular-text-subtle);
-  --angular-columns-btn-color: var(--angular-text-body);
+  --angular-columns-btn-bg: #eeeeee;
+  --angular-columns-btn-color: var(--angular-heading-color);
+  --angular-header-bg: #f8f9fa;
+  --angular-header-color: #212121;
   --angular-search-radius: 4px;
   --angular-search-height: 40px;
   --angular-paginator-height: 25px;
