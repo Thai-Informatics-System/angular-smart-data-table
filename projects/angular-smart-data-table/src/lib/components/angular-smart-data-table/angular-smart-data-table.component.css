@@ -302,14 +302,21 @@
 }
 
 .angular-table-paginator {
-    background-color: var(--angular-light, #f5f5f5) !important;
+    --angular-table-paginator-bg-resolved: var(--angular-table-paginator-bg, var(--angular-header-bg, var(--angular-light, #f5f5f5)));
+    --angular-table-paginator-color-resolved: var(--angular-table-paginator-color, var(--angular-header-color, var(--angular-heading-color, #212121)));
+    background-color: var(--angular-table-paginator-bg-resolved) !important;
+    color: var(--angular-table-paginator-color-resolved);
     border-radius: 0 0 var(--angular-radius, 5px) var(--angular-radius, 5px);
     --mat-form-field-container-height: var(--angular-paginator-height, 25px);
     --mat-form-field-container-vertical-padding: 0px;
+    --mat-paginator-container-background-color: var(--angular-table-paginator-bg-resolved);
+    --mat-paginator-container-text-color: var(--angular-table-paginator-color-resolved);
+    --mat-paginator-enabled-icon-color: var(--angular-table-paginator-color-resolved);
 }
 
 .angular-table-paginator mat-paginator {
-    background-color: var(--angular-light, #f5f5f5) !important;
+    background-color: var(--angular-table-paginator-bg-resolved) !important;
+    color: var(--angular-table-paginator-color-resolved);
     border-radius: 0 0 var(--angular-radius, 5px) var(--angular-radius, 5px);
 }
 
@@ -339,6 +346,12 @@
 
 ::ng-deep .angular-table-paginator .mat-mdc-select-value {
     line-height: var(--angular-paginator-height, 25px);
+    color: var(--angular-table-paginator-color-resolved);
+}
+
+::ng-deep .angular-table-paginator .mat-mdc-paginator-page-size-label,
+::ng-deep .angular-table-paginator .mat-mdc-paginator-range-label {
+    color: var(--angular-table-paginator-color-resolved);
 }
 
 ::ng-deep .angular-table thead {
@@ -475,12 +488,14 @@
 
 @media (max-width: 575.98px) {
     .angular-table-paginator {
-        background-color: var(--angular-light, #f5f5f5) !important;
+        background-color: var(--angular-table-paginator-bg-resolved) !important;
+        color: var(--angular-table-paginator-color-resolved);
         border-radius: 0 0 var(--angular-radius, 5px) var(--angular-radius, 5px);
     }
 
     .angular-table-paginator mat-paginator {
-        background-color: var(--angular-light, #f5f5f5) !important;
+        background-color: var(--angular-table-paginator-bg-resolved) !important;
+        color: var(--angular-table-paginator-color-resolved);
         border-radius: 0 0 var(--angular-radius, 5px) var(--angular-radius, 5px);
     }
 

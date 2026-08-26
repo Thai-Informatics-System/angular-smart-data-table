@@ -1,5 +1,5 @@
 .angular-columns-btn {
-    text-transform: uppercase !important;
+    text-transform: uppercase;
     background-color: var(--angular-columns-btn-bg, var(--angular-light, #eeeeee)) !important;
     color: var(--angular-columns-btn-color, var(--angular-heading-color, #212121)) !important;
     box-shadow: none !important;

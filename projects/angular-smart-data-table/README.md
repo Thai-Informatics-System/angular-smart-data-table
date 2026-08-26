@@ -291,6 +291,8 @@ Set these CSS variables on `:root` or `body`. All have fallbacks — unset token
   --angular-columns-btn-color: var(--angular-heading-color);
   --angular-header-bg: #f5f5f5;
   --angular-header-color: #212121;
+  --angular-table-paginator-bg: #f5f5f5;
+  --angular-table-paginator-color: #212121;
   --angular-search-radius: 4px;
   --angular-search-height: 40px;
   --angular-paginator-height: 25px;
