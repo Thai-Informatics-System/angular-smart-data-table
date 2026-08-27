@@ -242,10 +242,8 @@
     gap: 15px;
 }
 
-.angular-inline-group-item,
-.angular-inline-group ::ng-deep .angular-inline-group-item {
+::ng-deep .angular-inline-group-item{
     list-style: none !important;
-    margin: 0;
 }
 
 .angular-filter-badge {
