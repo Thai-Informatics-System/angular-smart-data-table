@@ -244,7 +244,7 @@
 
 .angular-inline-group-item,
 .angular-inline-group ::ng-deep .angular-inline-group-item {
-    list-style: none;
+    list-style: none !important;
     margin: 0;
 }
 
