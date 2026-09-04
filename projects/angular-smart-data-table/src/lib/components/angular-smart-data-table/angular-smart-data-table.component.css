@@ -429,6 +429,10 @@
     border-bottom-width: 0;
 }
 
+.angular-mobile-responsive-table{
+    width: 100%;
+}
+
 .angular-mobile-responsive-table thead tr th,
 .angular-mobile-responsive-table tbody tr td {
     padding: 0 !important;
