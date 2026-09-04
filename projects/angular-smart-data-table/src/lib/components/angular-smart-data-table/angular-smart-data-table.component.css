@@ -65,7 +65,7 @@
 .angular-table-search-field,
 .search-mat-form-field.angular-table-search-field {
     width: 280px;
-    margin-bottom: 0 !important;
+    margin-bottom: 16px !important;
 }
 
 ::ng-deep .angular-table-search-field .mat-mdc-form-field-subscript-wrapper {
