@@ -1,5 +1,5 @@
 import { CdkColumnDef } from '@angular/cdk/table';
-import { Component, EventEmitter, Input, Output, SimpleChanges, ViewChild, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges, ViewChild, OnDestroy, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, Subject, takeUntil, tap, Observable, map, shareReplay, distinctUntilChanged, debounceTime } from 'rxjs';
@@ -25,12 +25,15 @@ import { UrlHelper } from '../../helpers/url.helper';
 import { Location } from '@angular/common';
 import type { DataNotFoundConfig } from '../../interfaces/data-not-found-config.type';
 import type { ColumnCustomizationUrlConfig } from '../../interfaces/url-config.type';
+import type { SmartTableLoadError, SmartTableLoadErrorMapper } from '../../interfaces/load-error.type';
+import { normalizeLoadErrorInput, toSmartTableLoadError } from '../../helpers/load-error.helper';
 
 @Component({
   selector: 'angular-smart-data-table',
   standalone: false,
   templateUrl: './angular-smart-data-table.component.html',
   styleUrl: './angular-smart-data-table.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [CdkColumnDef],
 })
 export class AngularSmartDataTableComponent implements OnDestroy {
@@ -104,6 +107,29 @@ export class AngularSmartDataTableComponent implements OnDestroy {
   @Output() onDataLoaded = new EventEmitter<boolean>();
   @Output() onSetExtraData = new EventEmitter<any>();
   @Output() onSetTotal = new EventEmitter<number>();
+
+  /**
+   * Error shown in the table area instead of the rows. The table sets it when the list request
+   * fails and clears it when a later load succeeds. You can set it too: a message string or a
+   * `SmartTableLoadError` (`null` clears it). Bind `[(loadError)]` to keep your copy in sync.
+   */
+  @Input({ transform: normalizeLoadErrorInput }) loadError: SmartTableLoadError | null = null;
+  @Output() loadErrorChange = new EventEmitter<SmartTableLoadError | null>();
+  /** Emits when the list request fails, with the parsed error. */
+  @Output() onLoadError = new EventEmitter<SmartTableLoadError>();
+  /** Emits when the user clicks Retry in the error state; the table then reloads the current page itself. */
+  @Output() onRetry = new EventEmitter<void>();
+
+  /** Show the built-in error state. When false, a failed load leaves an empty table (the 1.x behaviour); `loadError` and `onLoadError` still report it. */
+  @Input() showLoadErrorState = true;
+  /** Turns a failed request's error into a `SmartTableLoadError`. The default reads `{ errors: [{ code, message }], requestId }`. */
+  @Input() loadErrorMapper: SmartTableLoadErrorMapper = toSmartTableLoadError;
+  /** Shown when the error carries no message. */
+  @Input() loadErrorFallbackMessage = 'Something went wrong while loading the data. Please try again.';
+  /** Label of the Retry button. */
+  @Input() loadErrorRetryBtnText = 'Retry';
+  /** Label in front of the request id. */
+  @Input() loadErrorRequestIdLabel = 'Request ID';
 
   @Input() hasSelectedAllRows = false;
 
@@ -204,6 +230,7 @@ export class AngularSmartDataTableComponent implements OnDestroy {
 
   loadingSubscription!: Subscription;
   dataLengthSubscription!: Subscription;
+  loadErrorSubscription!: Subscription;
 
   @Input() enableRowsSelection = false;
   @Input() enableAllRowsSelection = false;
@@ -363,6 +390,8 @@ export class AngularSmartDataTableComponent implements OnDestroy {
           this.dataLengthSubscription.unsubscribe();
         }
 
+        this.loadErrorSubscription?.unsubscribe();
+
         // ✅ FIX: Only create datasource once on initialization
         // Reusing the same datasource prevents subscription issues
         if (!this.dataSource) {
@@ -415,6 +444,14 @@ export class AngularSmartDataTableComponent implements OnDestroy {
             // console.log('[table-list-view-wrapper]: dataSource total total:', total);
           }
         });
+
+        this.loadErrorSubscription = this.dataSource.error$.subscribe(error => {
+          if (error === null) {
+            this.clearLoadError();
+          } else {
+            this.handleLoadFailure(error);
+          }
+        });
       }
     }
 
@@ -452,6 +489,12 @@ export class AngularSmartDataTableComponent implements OnDestroy {
       }
     }
 
+    if (changes['loadError'] && this.loadError) {
+      // The error state replaces the rows, so drop the ones still shown.
+      this.dataSource?.apiSubject.next([]);
+      this.initialLoading = false;
+    }
+
     if (changes['defaultSortObj']?.currentValue) {
       this.defaultSortObj = changes['defaultSortObj'].currentValue;
 
@@ -473,6 +516,7 @@ export class AngularSmartDataTableComponent implements OnDestroy {
     this._paginatorSubscription?.unsubscribe();
     this.loadingSubscription?.unsubscribe();
     this.dataLengthSubscription?.unsubscribe();
+    this.loadErrorSubscription?.unsubscribe();
     this.filterFormGroupSubscription?.unsubscribe();
     
     // Clean up additional subscriptions
@@ -803,6 +847,64 @@ export class AngularSmartDataTableComponent implements OnDestroy {
     this.resetFlag = false;
   }
 
+
+  /** True when the error state is shown in place of the rows. */
+  get hasLoadErrorState(): boolean {
+    return this.showLoadErrorState && !!this.loadError;
+  }
+
+  /** Reloads the current page (page, page size, search, filters and sort are kept). Used by the Retry button. */
+  public retry(): void {
+    this.onRetry.emit();
+    this.getList();
+  }
+
+  /**
+   * Shows the error state with your own error. A string is shown as the message; anything else
+   * (an `HttpErrorResponse`, an API error body, a `SmartTableLoadError`) goes through
+   * `loadErrorMapper`. `null` clears the error. Emits `loadErrorChange`.
+   */
+  public setLoadError(error: unknown): void {
+    if (error === null || error === undefined || error === '') {
+      this.clearLoadError();
+      return;
+    }
+
+    this.loadError = typeof error === 'string' ? { message: error } : this.mapLoadError(error);
+    this.dataSource?.apiSubject.next([]);
+    this.initialLoading = false;
+    this.loadErrorChange.emit(this.loadError);
+    this.cdr.markForCheck();
+  }
+
+  /** Hides the error state. Emits `loadErrorChange` when an error was shown. */
+  public clearLoadError(): void {
+    if (!this.loadError) {
+      return;
+    }
+
+    this.loadError = null;
+    this.loadErrorChange.emit(null);
+    this.cdr.markForCheck();
+  }
+
+  private handleLoadFailure(error: unknown): void {
+    const loadError = this.mapLoadError(error);
+    this.loadError = loadError;
+    this.initialLoading = false;
+    this.loadErrorChange.emit(loadError);
+    this.onLoadError.emit(loadError);
+    this.cdr.markForCheck();
+  }
+
+  private mapLoadError(error: unknown): SmartTableLoadError {
+    try {
+      return (this.loadErrorMapper ?? toSmartTableLoadError)(error) ?? { cause: error };
+    } catch (mapperError) {
+      console.warn('angular-smart-data-table: loadErrorMapper threw; showing the fallback message.', mapperError);
+      return { cause: error };
+    }
+  }
 
   onPaginationChanges() {
     // Read both new values up front. Changing the page size on a non-first page

@@ -1,10 +1,11 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'angular-smart-data-table-error-dialog',
   standalone: false,
   templateUrl: './angular-smart-data-table-error-dialog.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './angular-smart-data-table-error-dialog.component.css'
 })
 export class AngularSmartDataTableErrorDialogComponent {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserCustomizationService } from '../../services/user-customization.service';
 import { AngularHelperService } from '../../services/angular-helper.service';
@@ -10,6 +10,7 @@ import type { ColumnCustomizationUrlConfig } from '../../interfaces/url-config.t
     selector: 'angular-columns-btn',
     templateUrl: './angular-columns-btn.component.html',
     styleUrl: './angular-columns-btn.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AngularColumnsBtnComponent {

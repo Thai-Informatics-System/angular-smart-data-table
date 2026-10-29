@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, TemplateRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { SelectedFilterDisplayValuesType, SelectedFilterDisplayValueType, SmartTableWrapperColumnsConfig, AngularSmartDataTableComponent, AngularSmartDataTableModule } from 'angular-smart-data-table';
 import type { ColumnCustomizationUrlConfig, SmartTableWrapperRowsConfig } from 'angular-smart-data-table';
@@ -44,6 +44,7 @@ const uiImports = [
   imports: [TranslocoModule, AngularSmartDataTableModule, CommonModule, FormsModule, ReactiveFormsModule, ...uiImports],
   providers: [provideTranslocoScope('common')],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.component.scss'
 })
 export class AppComponent {

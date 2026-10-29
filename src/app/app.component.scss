@@ -255,7 +255,7 @@
 
     .mat-button-toggle {
         border-left-width: 0px !important;
-        border-bottom: solid 1px var(--mat-standard-button-toggle-divider-color) !important;
+        border-bottom: solid 1px var(--mat-button-toggle-divider-color) !important;
 
         &:last-child {
             border-bottom-width: 0px !important;
@@ -374,7 +374,7 @@
             .mdc-switch__handle-track {
                 .mdc-switch__handle {
                     .mdc-switch__icons {
-                        background: var(--mdc-switch-selected-handle-color, var(--mat-app-on-primary));
+                        background: var(--mat-slide-toggle-selected-handle-color, var(--mat-app-on-primary));
                         // background: red !important;
                         border-radius: 50% !important;
                     }
@@ -386,7 +386,7 @@
             .mdc-switch__handle-track {
                 .mdc-switch__handle {
                     .mdc-switch__icons {
-                        background: var(--mdc-switch-unselected-handle-color, var(--mat-app-outline));
+                        background: var(--mat-slide-toggle-unselected-handle-color, var(--mat-app-outline));
                         // background: yellow !important;
                         border-radius: 50% !important;
                     }
