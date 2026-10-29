@@ -17,6 +17,17 @@
 
 ---
 
+## Compatibility
+
+| Library | Angular, Material, CDK |
+|---|---|
+| 2.x | 22.x |
+| 1.x | 19.x |
+
+**2.0.0** — built with Angular 22 (partial compilation), so it needs Angular 22 and does not work on older versions; stay on 1.x for Angular 19. `@angular/forms`, `@angular/router` and `luxon` (used by the date pipes) are now declared peers. Colours fall back to Material 3 system tokens (`--mat-sys-*`), so the table follows an M3 app theme; the `--angular-*` variables still override them.
+
+---
+
 ## 🚀 Installation
 
 ```bash
@@ -26,7 +37,7 @@ npm install @servicemind.tis/angular-smart-data-table
 ### Peer Dependencies
 
 ```bash
-npm install @angular/material @angular/cdk
+npm install @angular/material@^22 @angular/cdk@^22 luxon@^3
 ```
 
 ---

@@ -1,6 +1,6 @@
 .angular-page {
     padding: var(--angular-page-padding, 15px);
-    background-color: var(--angular-page-bg, white);
+    background-color: var(--angular-page-bg, var(--mat-sys-surface, white));
 }
 
 .angular-page-header {
@@ -74,7 +74,7 @@
 
 ::ng-deep .angular-table-search-field .mat-mdc-text-field-wrapper {
     height: var(--angular-search-height, 40px);
-    background-color: var(--angular-search-bg, var(--angular-surface, #ffffff));
+    background-color: var(--angular-search-bg, var(--angular-surface, var(--mat-sys-surface, #ffffff)));
     padding-left: 12px !important;
 }
 
@@ -87,7 +87,7 @@
 ::ng-deep .angular-table-search-field .mdc-notched-outline__leading,
 ::ng-deep .angular-table-search-field .mdc-notched-outline__notch,
 ::ng-deep .angular-table-search-field .mdc-notched-outline__trailing {
-    border-color: var(--angular-search-border, #d0d0d0) !important;
+    border-color: var(--angular-search-border, var(--mat-sys-outline, #d0d0d0)) !important;
     border-width: 1px !important;
 }
 
@@ -104,24 +104,24 @@
 ::ng-deep .angular-table-search-field.mat-focused .mdc-notched-outline__leading,
 ::ng-deep .angular-table-search-field.mat-focused .mdc-notched-outline__notch,
 ::ng-deep .angular-table-search-field.mat-focused .mdc-notched-outline__trailing {
-    border-color: var(--angular-primary, #3838a2) !important;
+    border-color: var(--angular-primary, var(--mat-sys-primary, #3838a2)) !important;
 }
 
 ::ng-deep .angular-table-search-field .mat-mdc-form-field-icon-prefix .material-icons,
 ::ng-deep .angular-table-search-field .material-icons[matPrefix],
 ::ng-deep .angular-table-search-field .mat-mdc-form-field-icon-suffix .material-icons {
-    color: var(--angular-search-icon, var(--angular-heading-color, #212121));
+    color: var(--angular-search-icon, var(--angular-heading-color, var(--mat-sys-on-surface, #212121)));
     font-size: 20px;
     width: 20px;
     height: 20px;
 }
 
 ::ng-deep .angular-table-search-field input {
-    color: var(--angular-text-body, rgba(0, 0, 0, 0.87));
+    color: var(--angular-text-body, var(--mat-sys-on-surface, rgba(0, 0, 0, 0.87)));
 }
 
 ::ng-deep .angular-table-search-field input::placeholder {
-    color: var(--angular-search-placeholder, var(--angular-text-subtle, #9e9e9e));
+    color: var(--angular-search-placeholder, var(--angular-text-subtle, var(--mat-sys-on-surface-variant, #9e9e9e)));
     opacity: 1;
 }
 
@@ -213,7 +213,7 @@
 }
 
 .angular-breadcrumb-item {
-    color: var(--angular-primary, #3838a2);
+    color: var(--angular-primary, var(--mat-sys-primary, #3838a2));
 }
 
 .angular-breadcrumb-item a {
@@ -227,12 +227,12 @@
 
 .angular-breadcrumb-item + .angular-breadcrumb-item::before {
     padding: 0 0.4rem;
-    color: var(--angular-breadcrumb-separator, #6c757d);
+    color: var(--angular-breadcrumb-separator, var(--mat-sys-on-surface-variant, #6c757d));
     content: "/";
 }
 
 .angular-breadcrumb-item.active {
-    color: var(--angular-text-subtle, #9e9e9e);
+    color: var(--angular-text-subtle, var(--mat-sys-on-surface-variant, #9e9e9e));
 }
 
 .angular-inline-group {
@@ -250,8 +250,8 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    color: var(--angular-filter-badge-color, #424242);
-    border: 1px solid var(--angular-divider, rgba(0, 0, 0, 0.12));
+    color: var(--angular-filter-badge-color, var(--mat-sys-on-surface-variant, #424242));
+    border: 1px solid var(--angular-divider, var(--mat-sys-outline-variant, rgba(0, 0, 0, 0.12)));
     border-radius: var(--angular-radius, 5px);
     padding: 4px 8px;
     white-space: nowrap;
@@ -260,7 +260,7 @@
 .angular-filter-badge .mat-icon,
 .angular-filter-badge .material-icons,
 .angular-filter-badge .material-symbols-outlined {
-    color: var(--angular-icon-muted, rgba(0, 0, 0, 0.54));
+    color: var(--angular-icon-muted, var(--mat-sys-on-surface-variant, rgba(0, 0, 0, 0.54)));
 }
 
 .angular-curser-pointer {
@@ -300,8 +300,8 @@
 }
 
 .angular-table-paginator {
-    --angular-table-paginator-bg-resolved: var(--angular-table-paginator-bg, var(--angular-header-bg, var(--angular-light, #f5f5f5)));
-    --angular-table-paginator-color-resolved: var(--angular-table-paginator-color, var(--angular-header-color, var(--angular-heading-color, #212121)));
+    --angular-table-paginator-bg-resolved: var(--angular-table-paginator-bg, var(--angular-header-bg, var(--angular-light, var(--mat-sys-surface-container, #f5f5f5))));
+    --angular-table-paginator-color-resolved: var(--angular-table-paginator-color, var(--angular-header-color, var(--angular-heading-color, var(--mat-sys-on-surface, #212121))));
     background-color: var(--angular-table-paginator-bg-resolved) !important;
     color: var(--angular-table-paginator-color-resolved);
     border-radius: 0 0 var(--angular-radius, 5px) var(--angular-radius, 5px);
@@ -353,7 +353,7 @@
 }
 
 ::ng-deep .angular-table thead {
-    background-color: var(--angular-header-bg, var(--angular-light, #f5f5f5)) !important;
+    background-color: var(--angular-header-bg, var(--angular-light, var(--mat-sys-surface-container, #f5f5f5))) !important;
 }
 
 ::ng-deep .angular-table thead tr {
@@ -364,7 +364,7 @@
     font-size: var(--mat-table-row-item-label-text-size, 14px);
     font-weight: 500;
     height: var(--mat-table-row-item-container-height, 52px);
-    color: var(--angular-header-color, var(--angular-heading-color, #212121));
+    color: var(--angular-header-color, var(--angular-heading-color, var(--mat-sys-on-surface, #212121)));
 }
 
 ::ng-deep .angular-table thead tr th {
@@ -374,8 +374,8 @@
     text-overflow: ellipsis;
     padding: 0 16px !important;
     font-size: 14px !important;
-    color: var(--angular-header-color, var(--angular-heading-color, #212121));
-    background-color: var(--angular-header-bg, var(--angular-light, #f5f5f5));
+    color: var(--angular-header-color, var(--angular-heading-color, var(--mat-sys-on-surface, #212121)));
+    background-color: var(--angular-header-bg, var(--angular-light, var(--mat-sys-surface-container, #f5f5f5)));
     border-bottom-color: var(--angular-table-border, var(--mat-table-row-item-outline-color, var(--mat-sys-outline, rgba(0, 0, 0, 0.12))));
     border-bottom-width: var(--mat-table-row-item-outline-width, 1px);
     border-bottom-style: solid;
@@ -463,7 +463,7 @@
 .angular-a {
     font-weight: 500;
     cursor: pointer;
-    color: var(--angular-primary, #3838a2);
+    color: var(--angular-primary, var(--mat-sys-primary, #3838a2));
     margin: 0 !important;
 }
 
@@ -480,7 +480,7 @@
     margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
-    color: var(--angular-heading-color, #212121);
+    color: var(--angular-heading-color, var(--mat-sys-on-surface, #212121));
     font-size: 1.25rem;
 }
 

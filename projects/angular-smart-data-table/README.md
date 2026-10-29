@@ -17,6 +17,17 @@
 
 ---
 
+## Compatibility
+
+| Library | Angular, Material, CDK |
+|---|---|
+| 2.x | 22.x |
+| 1.x | 19.x |
+
+**2.0.0** — built with Angular 22 (partial compilation), so it needs Angular 22 and does not work on older versions; stay on 1.x for Angular 19. `@angular/forms`, `@angular/router` and `luxon` (used by the date pipes) are now declared peers. Colours fall back to Material 3 system tokens (`--mat-sys-*`), so the table follows an M3 app theme; the `--angular-*` variables still override them.
+
+---
+
 ## 🚀 Installation
 
 ```bash
@@ -26,7 +37,7 @@ npm install @servicemind.tis/angular-smart-data-table
 ### Peer Dependencies
 
 ```bash
-npm install @angular/material @angular/cdk
+npm install @angular/material@^22 @angular/cdk@^22 luxon@^3
 ```
 
 ---
@@ -257,6 +268,8 @@ Make sure to import `AngularSmartDataTableModule` and necessary Angular Material
 ## Theming
 
 Set these CSS variables on `:root` or `body`. All have fallbacks — unset tokens keep the library defaults.
+
+Colours resolve in order: the `--angular-*` variable if you set it, then the Material 3 system token from your theme (`mat.theme`), then the literal default shown below. The main mappings: `--angular-primary` → `--mat-sys-primary`, `--angular-on-primary` → `--mat-sys-on-primary`, `--angular-danger` → `--mat-sys-error`, `--angular-heading-color` / `--angular-text-body` → `--mat-sys-on-surface`, `--angular-text-muted` / `--angular-text-subtle` / `--angular-icon-muted` → `--mat-sys-on-surface-variant`, `--angular-surface` / `--angular-page-bg` → `--mat-sys-surface`, `--angular-light` → `--mat-sys-surface-container`, `--angular-dialog-header-bg` → `--mat-sys-surface-container-high`, `--angular-divider` → `--mat-sys-outline-variant`, `--angular-search-border` → `--mat-sys-outline`, `--angular-table-border` → `--mat-table-row-item-outline-color` / `--mat-sys-outline`.
 
 ```css
 :root {

@@ -1,7 +1,7 @@
 .angular-columns-btn {
     text-transform: uppercase;
-    background-color: var(--angular-columns-btn-bg, var(--angular-light, #eeeeee)) !important;
-    color: var(--angular-columns-btn-color, var(--angular-heading-color, #212121)) !important;
+    background-color: var(--angular-columns-btn-bg, var(--angular-light, var(--mat-sys-surface-container, #eeeeee))) !important;
+    color: var(--angular-columns-btn-color, var(--angular-heading-color, var(--mat-sys-on-surface, #212121))) !important;
     box-shadow: none !important;
 }
 
@@ -14,26 +14,26 @@
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .mat-mdc-menu-item {
-    color: var(--angular-text-muted, #757575) !important;
+    color: var(--angular-text-muted, var(--mat-sys-on-surface-variant, #757575)) !important;
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .mat-mdc-menu-item .mat-icon {
-    color: var(--angular-text-muted, #757575) !important;
+    color: var(--angular-text-muted, var(--mat-sys-on-surface-variant, #757575)) !important;
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .mat-mdc-menu-item .mat-icon.delete-button:hover {
-    color: var(--angular-delete-icon, var(--angular-danger, #bb333b)) !important;
+    color: var(--angular-delete-icon, var(--angular-danger, var(--mat-sys-error, #bb333b))) !important;
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .mat-mdc-menu-item .mat-icon.edit-button:hover {
-    color: var(--angular-edit-icon, var(--angular-primary, #3838a2)) !important;
+    color: var(--angular-edit-icon, var(--angular-primary, var(--mat-sys-primary, #3838a2))) !important;
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .angular-create-columns-template-button {
-    color: var(--angular-primary, #3838a2) !important;
+    color: var(--angular-primary, var(--mat-sys-primary, #3838a2)) !important;
 }
 
 ::ng-deep .angular-columns-btn-mat-menu .angular-create-columns-template-button .mat-icon {
-    color: var(--angular-primary, #3838a2) !important;
+    color: var(--angular-primary, var(--mat-sys-primary, #3838a2)) !important;
     margin-right: 5px !important;
 }

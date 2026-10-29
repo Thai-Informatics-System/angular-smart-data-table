@@ -1,5 +1,5 @@
 import { CdkColumnDef } from '@angular/cdk/table';
-import { Component, EventEmitter, Input, Output, SimpleChanges, ViewChild, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges, ViewChild, OnDestroy, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, Subject, takeUntil, tap, Observable, map, shareReplay, distinctUntilChanged, debounceTime } from 'rxjs';
@@ -31,6 +31,7 @@ import type { ColumnCustomizationUrlConfig } from '../../interfaces/url-config.t
   standalone: false,
   templateUrl: './angular-smart-data-table.component.html',
   styleUrl: './angular-smart-data-table.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [CdkColumnDef],
 })
 export class AngularSmartDataTableComponent implements OnDestroy {

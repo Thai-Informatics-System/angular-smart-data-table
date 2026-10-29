@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { provideRouter } from '@angular/router';
@@ -27,7 +27,7 @@ describe('AngularSmartDataTableErrorDialogComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AngularSmartDataTableModule],
       providers: [
-        provideHttpClient(),
+        provideHttpClient(withXhr()),
         provideHttpClientTesting(),
         provideRouter([]),
         { provide: MatDialogRef, useValue: dialogRefStub },
