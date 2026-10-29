@@ -13,6 +13,7 @@
 - Internationalization support (e.g., Transloco)
 - Custom row background styling
 - Built-in pagination and sorting
+- Inline error state with Retry when loading fails
 - Dynamic slot and template injection for full control
 
 ---
@@ -256,6 +257,57 @@ export type DataNotFoundConfig = {
     secondBtnClick?: null | ((rec: any, event?: MouseEvent) => void);
 };
 ```
+
+---
+
+## ⚠️ Error state (2.0.0+)
+
+When the list request fails, the table shows an inline error in place of the rows: the first error message from the response, the request id in small text (when there is one), and a **Retry** button that reloads the current page with the same page size, search, filters and sort. The header, search and filters stay usable. A later successful load clears the error.
+
+The default parser (`toSmartTableLoadError`, exported) reads `{ errors: [{ code, message, field?, params? }], requestId }`, and also `{ message }`, a JSON body sent as text, and the `X-Request-Id` response header. Transport text such as "Http failure response for …" is never shown; the fallback message is used instead.
+
+| Input | Type | Default | Purpose |
+|---|---|---|---|
+| `loadError` | `SmartTableLoadError \| string \| null` | `null` | The error shown. Set it to show your own error, `null` hides it; `[(loadError)]` keeps your copy in sync. |
+| `showLoadErrorState` | `boolean` | `true` | `false` keeps the 1.x behaviour (empty table); `loadError` and `onLoadError` still report the failure. |
+| `loadErrorFallbackMessage` | `string` | `'Something went wrong while loading the data. Please try again.'` | Shown when the error has no message. |
+| `loadErrorRetryBtnText` | `string` | `'Retry'` | Retry button label. |
+| `loadErrorRequestIdLabel` | `string` | `'Request ID'` | Label before the request id. |
+| `loadErrorMapper` | `(error: unknown) => SmartTableLoadError` | `toSmartTableLoadError` | Parse a different error shape. |
+
+| Output | Payload | When |
+|---|---|---|
+| `loadErrorChange` | `SmartTableLoadError \| null` | The error is set or cleared. |
+| `onLoadError` | `SmartTableLoadError` | The list request failed. |
+| `onRetry` | `void` | The user clicked Retry (the table reloads by itself). |
+
+Public methods (through a template reference or `@ViewChild`): `retry()` reloads the current page, `setLoadError(error)` shows an error (a string is shown as is; anything else goes through `loadErrorMapper`), `clearLoadError()` hides it.
+
+```html
+<ng-container *transloco="let t; read: 'units'">
+  <angular-smart-data-table
+    #table
+    ...
+    [loadErrorFallbackMessage]="t('loadErrorFallback')"
+    [loadErrorRetryBtnText]="t('retry')"
+    [loadErrorRequestIdLabel]="t('requestId')"
+    (onLoadError)="onUnitsLoadError($event)"
+  ></angular-smart-data-table>
+</ng-container>
+```
+
+```ts
+export type SmartTableLoadError = {
+    message?: string | null;   // shown; empty -> loadErrorFallbackMessage
+    requestId?: string | null; // shown in small text when present
+    code?: string | null;      // code of the first API error
+    status?: number | null;    // HTTP status (0 = network error)
+    errors?: SmartTableApiErrorItem[]; // all API errors
+    cause?: unknown;           // the original error
+};
+```
+
+The state uses the classes `.angular-load-error`, `.angular-load-error-icon`, `.angular-load-error-message`, `.angular-load-error-request-id` and `.angular-load-error-retry`; the icon takes `--angular-danger` (then `--mat-sys-error`), the request id `--angular-text-subtle` (then `--mat-sys-on-surface-variant`).
 
 ---
 

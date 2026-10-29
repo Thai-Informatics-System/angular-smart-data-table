@@ -7,3 +7,4 @@ export * from './lib/angular-smart-data-table.module';
 export * from './lib/components/angular-smart-data-table/angular-smart-data-table.component';
 
 export * from './lib/interfaces';
+export { toSmartTableLoadError } from './lib/helpers/load-error.helper';
