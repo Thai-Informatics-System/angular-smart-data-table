@@ -37,14 +37,16 @@
             @if(!hideTableHeader){
               <div class="angular-table-container-header">
                 <ul class="angular-inline-group">
-                  <li class="angular-inline-group-item">
-                    <angular-columns-btn [columnCustomizationUrlConfig]="columnCustomizationUrlConfig" [t]="t"
-                      [componentName]="componentName" [(selectedTemplate)]="selectedTemplate" [defaultColumns]="defaultColumns" [columns]="columns"
-                      (selectedTemplateChange)="onSetSelectedTemplate($event)"
-                      (displayedColumnsChange)="onChangeDisplayColumns($event)"
-                      (fromStartColumnNumberChange)="onChangeFromStartColumnNumber($event)"
-                    (fromEndColumnNumberChange)="onChangeFromEndColumnNumber($event)"></angular-columns-btn>
-                  </li>
+                  @if (displayColumnsSelectionButton) {
+                    <li class="angular-inline-group-item">
+                      <angular-columns-btn [columnCustomizationUrlConfig]="columnCustomizationUrlConfig" [t]="t"
+                        [componentName]="componentName" [(selectedTemplate)]="selectedTemplate" [defaultColumns]="defaultColumns" [columns]="columns"
+                        (selectedTemplateChange)="onSetSelectedTemplate($event)"
+                        (displayedColumnsChange)="onChangeDisplayColumns($event)"
+                        (fromStartColumnNumberChange)="onChangeFromStartColumnNumber($event)"
+                        (fromEndColumnNumberChange)="onChangeFromEndColumnNumber($event)"></angular-columns-btn>
+                    </li>
+                  }
                   <ng-content select="[slot='filter-button-section']"></ng-content>
                 </ul>
                 <div class="flex items-center">

@@ -184,3 +184,51 @@ describe('AngularSmartDataTableComponent error state', () => {
     expect(component.loadError?.message).toBe('Nope');
   });
 });
+
+describe('AngularSmartDataTableComponent columns selection button', () => {
+  const listUrl = '/api/units/list';
+  let fixture: ComponentFixture<AngularSmartDataTableComponent>;
+  let http: HttpTestingController;
+
+  const columnsButton = (): Element | null => (fixture.nativeElement as HTMLElement).querySelector('angular-columns-btn');
+
+  async function render(displayColumnsSelectionButton?: boolean) {
+    await TestBed.configureTestingModule({
+      imports: [AngularSmartDataTableModule],
+      providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
+    }).compileComponents();
+    http = TestBed.inject(HttpTestingController);
+    fixture = TestBed.createComponent(AngularSmartDataTableComponent);
+    fixture.componentRef.setInput('columnCustomizationUrlConfig', {
+      list: '/api/columns/list',
+      add: '/api/columns/add',
+      update: '/api/columns/update',
+      delete: '/api/columns/delete',
+      getSelectedTemplate: '/api/columns/selected',
+      updateSelectedTemplate: '/api/columns/selected/update',
+    });
+    fixture.componentRef.setInput('t', {});
+    fixture.componentRef.setInput('componentName', 'units');
+    fixture.componentRef.setInput('mainTitle', 'Units');
+    fixture.componentRef.setInput('columnsCodeMapping', [{ name: 'code', type: 'string', serverKeyCode: 'code', valueKey: 'code' }]);
+    fixture.componentRef.setInput('keepFilterInUrl', false);
+    fixture.componentRef.setInput('loadDataApiBaseUrl', listUrl);
+    if (displayColumnsSelectionButton !== undefined) {
+      fixture.componentRef.setInput('displayColumnsSelectionButton', displayColumnsSelectionButton);
+    }
+    fixture.detectChanges();
+    http.expectOne(req => req.url.startsWith(listUrl)).flush({ data: [{ code: 'A-001' }], total: 1 });
+    fixture.detectChanges();
+  }
+
+  it('shows the column template button by default', async () => {
+    await render();
+    expect(columnsButton()).withContext('button rendered').not.toBeNull();
+  });
+
+  it('leaves it out when displayColumnsSelectionButton is false, and still shows the columns', async () => {
+    await render(false);
+    expect(columnsButton()).withContext('button rendered').toBeNull();
+    expect(fixture.componentInstance.displayedColumns).toEqual(['code']);
+  });
+});
